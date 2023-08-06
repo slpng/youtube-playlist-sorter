@@ -1,0 +1,9 @@
+{
+  "include": ["**/*.ts"],
+  "compilerOptions": {
+    "forceConsistentCasingInFileNames": true,
+    "outDir": "./build",
+    "rootDir": "./src",
+    "strict": true
+  }
+}
