@@ -4,6 +4,8 @@
     "forceConsistentCasingInFileNames": true,
     "outDir": "./build",
     "rootDir": "./src",
-    "strict": true
+    "strict": true,
+    "sourceMap": true,
+    "target": "ESNext"
   }
 }

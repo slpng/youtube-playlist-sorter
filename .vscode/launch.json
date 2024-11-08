@@ -1,0 +1,22 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "ts debug",
+      "skipFiles": [
+        "<node_internals>/**",
+        "${workspaceFolder}/node_modules/**"
+      ],
+      "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/ts-node",
+      "runtimeArgs": ["--transpile-only"],
+      "program": "${workspaceFolder}/src/index.ts",
+      "args": [
+        "--playlistId",
+        "PLdK4eMGwNbb_iQ5avZAggCmDzfWbypX42",
+        "--descending"
+      ]
+    }
+  ]
+}
