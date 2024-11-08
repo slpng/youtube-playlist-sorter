@@ -32,6 +32,10 @@ export const getPlaylistItems = async (
   playlistId: string,
   pageToken?: string
 ) => {
+  if (typeof API_KEY !== "string") {
+    throw "API key is required"
+  }
+
   const searchParams = new URLSearchParams([
     ["part", "snippet"],
     ["maxResults", "50"],

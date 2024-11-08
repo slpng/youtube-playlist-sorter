@@ -2,9 +2,7 @@ import "dotenv/config"
 import { parseArgs } from "node:util"
 import { getPlaylistItems } from "./fetch"
 
-const {
-  values: { playlistId, descending },
-} = parseArgs({
+const { values } = parseArgs({
   options: {
     playlistId: {
       type: "string",
@@ -16,12 +14,17 @@ const {
     },
   },
 })
+const playlistId = values.playlistId
+const descending = values.descending ?? false
 
 const main = async () => {
-  const items = await getPlaylistItems(playlistId)
+  if (typeof playlistId !== "string") {
+    throw "Insufficient arguments"
+  }
 
+  const items = await getPlaylistItems(playlistId)
   if (!items) {
-    console.log('main null')
+    throw "Couldn't get playlist data"
   }
 
   items.sort((a, b) => {
@@ -38,4 +41,9 @@ const main = async () => {
   })
 }
 
-main()
+try {
+  main()
+} catch (error: any) {
+  const nodeError: NodeJS.ErrnoException = error
+  console.log(nodeError)
+}
